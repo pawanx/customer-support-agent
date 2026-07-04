@@ -11,7 +11,7 @@ export default function Chat(){
         }
     ])
 
-    function handleSend(){
+    async function handleSend(){
         if(!input.trim()){
             return;
         }
@@ -24,6 +24,23 @@ export default function Chat(){
         ])
 
         setInput("")
+
+        const response = await fetch("/api/agent", {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                message : input
+            })
+        })
+
+        const data = await response.json()
+
+        setMessages((prev) => [...prev, {
+            role : "assistant",
+            content : data.message
+        }])
     }
     return(
         <div className="chat-container">
