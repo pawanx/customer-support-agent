@@ -1,0 +1,47 @@
+.reasoning-panel {
+    width: 35%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.reasoning-header {
+    background: #111827;
+    color: white;
+    padding: 18px;
+}
+
+.reasoning-body {
+    padding: 16px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.reasoning-card {
+    border-left: 4px solid #2563eb;
+    background: #f8fafc;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.step {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.details {
+    color: #555;
+    font-size: 14px;
+}
+
+.time {
+    color: gray;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.empty {
+    color: gray;
+}

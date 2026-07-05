@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import "./Chat.css";
+import Reasoning from "../Reasoning/Reasoning";
 export default function Chat() {
   const [input, setInput] = useState("");
+  const [logs, setLogs] = useState([]);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
@@ -39,6 +41,8 @@ export default function Chat() {
 
       const data = await response.json();
 
+      setLogs(data.result.logs || []);
+
       setMessages((prev) => [
         ...prev,
         {
@@ -47,16 +51,17 @@ export default function Chat() {
         },
       ]);
     } catch (error) {
-        setMessages((prev) => [
-      ...prev,
-      {
-        role: "assistant",
-        content: "Something went wrong. Please try again.",
-      },
-    ]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "Something went wrong. Please try again.",
+        },
+      ]);
     }
   }
   return (
+    <div className="main-layout">
     <div className="chat-container">
       <div className="chat-header">
         <h2>Customer Support</h2>
@@ -75,6 +80,8 @@ export default function Chat() {
         ))}
       </div>
 
+     
+
       <div className="input-area">
         <input
           type="text"
@@ -84,6 +91,8 @@ export default function Chat() {
         />
         <button onClick={handleSend}>Send</button>
       </div>
+    </div>
+    <Reasoning logs={logs}/>
     </div>
   );
 }
