@@ -236,18 +236,6 @@ http://localhost:3000
 
 ---
 
-### Refund Approved
-
-_Add screenshot here_
-
----
-
-### Refund Denied
-
-_Add screenshot here_
-
----
-
 ## 🔮 Future Improvements
 
 - Voice support
