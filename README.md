@@ -1,36 +1,276 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 AI Customer Support Agent
 
-## Getting Started
+An AI-powered customer support application built with **Next.js** that processes e-commerce refund requests using an AI agent, business validation tools, and real-time reasoning logs.
 
-First, run the development server:
+Designed as a product vertical slice for an AI Customer Support Agent.
+
+---
+
+## ✨ Features
+
+- 💬 AI-powered customer chat interface
+- 📋 Mock CRM with 15 customer profiles
+- 📖 Refund policy validation
+- 🧠 Agent orchestration with business tools
+- 🔍 Automatic order ID extraction
+- ✅ Refund eligibility validation
+- 📜 Real-time agent reasoning logs
+- 🎨 Clean and responsive UI
+- ⚡ Built with Next.js App Router
+
+---
+
+## 🖥️ Demo
+
+### Customer Chat
+
+- Ask for a refund using an order ID.
+- AI validates the request.
+- Returns a professional response.
+
+Example:
+
+```
+Refund for ORD1001
+```
+
+---
+
+### Agent Reasoning
+
+Every request generates live reasoning logs such as:
+
+```
+✓ Message Received
+
+✓ Order ID Extracted
+
+✓ Customer Found
+
+✓ Refund Policy Validated
+
+✓ AI Response Generated
+```
+
+---
+
+## 🏗️ Architecture
+
+```
+Customer
+
+      │
+      ▼
+
+Chat UI (Next.js)
+
+      │
+      ▼
+
+API Route
+
+      │
+      ▼
+
+Agent Controller
+
+      │
+      ├──────────────┐
+      ▼              ▼
+
+ Business Logic     OpenRouter
+
+      │
+
+Customer Lookup
+
+Refund Validation
+
+Policy Check
+
+      │
+      ▼
+
+Final AI Response
+```
+
+---
+
+## 📁 Project Structure
+
+```
+ai-support-agent
+│
+├── app
+│   ├── api
+│   │   └── agent
+│   ├── dashboard
+│   ├── layout.js
+│   ├── page.js
+│   └── globals.css
+│
+├── components
+│   ├── Chat
+│   ├── Navbar
+│   └── ReasoningPanel
+│
+├── data
+│   ├── customers.json
+│   └── refund-policy.txt
+│
+├── lib
+│   ├── agent.js
+│   ├── logger.js
+│   ├── openrouter.js
+│   ├── prompts.js
+│   ├── tools.js
+│   └── utils.js
+│
+└── public
+```
+
+---
+
+## 🧠 Agent Workflow
+
+1. Customer submits a refund request.
+2. Agent extracts the Order ID.
+3. Customer record is retrieved.
+4. Refund eligibility is validated.
+5. AI generates a customer-friendly response.
+6. Every step is logged for the admin panel.
+
+---
+
+## 🛠️ Business Rules
+
+The backend enforces refund rules before the AI responds.
+
+### Refund is approved when
+
+- Order has been delivered
+- Request is within 30 days
+- Product is refundable
+- Refund hasn't already been processed
+
+### Refund is denied when
+
+- Customer not found
+- Order exceeds refund window
+- Product is digital
+- Refund already processed
+- Order not delivered
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+
+- Next.js 15
+- React
+- JavaScript
+- CSS
+
+### AI
+
+- OpenRouter
+- OpenAI SDK
+
+### Backend
+
+- Next.js API Routes
+
+### Data
+
+- JSON Mock CRM
+- Refund Policy Text File
+
+---
+
+## 🚀 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/pawanx/ai-customer-support-agent.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Create an environment file
+
+```env
+OPENROUTER_API_KEY=your_api_key
+```
+
+Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📸 Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+### Customer Chat
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Homepage](./assets/chatscreen.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### Agent Reasoning 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Response](./assets//response.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### Refund Approved
+
+_Add screenshot here_
+
+---
+
+### Refund Denied
+
+_Add screenshot here_
+
+---
+
+## 🔮 Future Improvements
+
+- Voice support
+- Database integration
+- Authentication
+- Persistent chat history
+- LangGraph agent loop
+- Admin analytics dashboard
+- Email notifications
+- Multi-language support
+
+---
+
+## 👨‍💻 Author
+
+**Pawan Mishra**
+
+GitHub: https://github.com/pawanx
+
+LinkedIn: https://www.linkedin.com/in/pawan-mishra-08b3b9133/
+
+---
+
+## 📄 License
+
+This project was created as part of a technical assessment and is available for educational purposes.
